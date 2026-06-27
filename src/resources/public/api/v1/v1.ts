@@ -8,8 +8,6 @@ import {
   HeatmapCreateHeatmapResponse,
   HeatmapListHeatmapsParams,
   HeatmapListHeatmapsResponse,
-  HeatmapListLocationsParams,
-  HeatmapListLocationsResponse,
   HeatmapRetrieveHeatmapCompetitorsResponse,
   HeatmapRetrieveHeatmapPointParams,
   HeatmapRetrieveHeatmapPointResponse,
@@ -27,13 +25,11 @@ export declare namespace V1 {
     Heatmap as Heatmap,
     type HeatmapCreateHeatmapResponse as HeatmapCreateHeatmapResponse,
     type HeatmapListHeatmapsResponse as HeatmapListHeatmapsResponse,
-    type HeatmapListLocationsResponse as HeatmapListLocationsResponse,
     type HeatmapRetrieveHeatmapResponse as HeatmapRetrieveHeatmapResponse,
     type HeatmapRetrieveHeatmapCompetitorsResponse as HeatmapRetrieveHeatmapCompetitorsResponse,
     type HeatmapRetrieveHeatmapPointResponse as HeatmapRetrieveHeatmapPointResponse,
     type HeatmapRetrieveHeatmapPointParams as HeatmapRetrieveHeatmapPointParams,
     type HeatmapListHeatmapsParams as HeatmapListHeatmapsParams,
     type HeatmapCreateHeatmapParams as HeatmapCreateHeatmapParams,
-    type HeatmapListLocationsParams as HeatmapListLocationsParams,
   };
 }

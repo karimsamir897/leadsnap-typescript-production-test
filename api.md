@@ -10,7 +10,6 @@ Types:
 
 - <code><a href="./src/resources/public/api/v1/heatmap/heatmap.ts">HeatmapCreateHeatmapResponse</a></code>
 - <code><a href="./src/resources/public/api/v1/heatmap/heatmap.ts">HeatmapListHeatmapsResponse</a></code>
-- <code><a href="./src/resources/public/api/v1/heatmap/heatmap.ts">HeatmapListLocationsResponse</a></code>
 - <code><a href="./src/resources/public/api/v1/heatmap/heatmap.ts">HeatmapRetrieveHeatmapResponse</a></code>
 - <code><a href="./src/resources/public/api/v1/heatmap/heatmap.ts">HeatmapRetrieveHeatmapCompetitorsResponse</a></code>
 - <code><a href="./src/resources/public/api/v1/heatmap/heatmap.ts">HeatmapRetrieveHeatmapPointResponse</a></code>
@@ -20,7 +19,6 @@ Methods:
 - <code title="get /public/api/v1/heatmaps/{heatmap_id}/points/{point_id}">client.public.api.v1.heatmap.<a href="./src/resources/public/api/v1/heatmap/heatmap.ts">retrieveHeatmapPoint</a>(pointID, { ...params }) -> HeatmapRetrieveHeatmapPointResponse</code>
 - <code title="get /public/api/v1/heatmaps">client.public.api.v1.heatmap.<a href="./src/resources/public/api/v1/heatmap/heatmap.ts">listHeatmaps</a>({ ...params }) -> HeatmapListHeatmapsResponse</code>
 - <code title="post /public/api/v1/heatmaps">client.public.api.v1.heatmap.<a href="./src/resources/public/api/v1/heatmap/heatmap.ts">createHeatmap</a>({ ...params }) -> HeatmapCreateHeatmapResponse</code>
-- <code title="get /public/api/v1/heatmaps/locations">client.public.api.v1.heatmap.<a href="./src/resources/public/api/v1/heatmap/heatmap.ts">listLocations</a>({ ...params }) -> HeatmapListLocationsResponse</code>
 - <code title="get /public/api/v1/heatmaps/{heatmap}">client.public.api.v1.heatmap.<a href="./src/resources/public/api/v1/heatmap/heatmap.ts">retrieveHeatmap</a>(heatmap) -> HeatmapRetrieveHeatmapResponse</code>
 - <code title="get /public/api/v1/heatmaps/{heatmap}/competitors">client.public.api.v1.heatmap.<a href="./src/resources/public/api/v1/heatmap/heatmap.ts">retrieveHeatmapCompetitors</a>(heatmap) -> HeatmapRetrieveHeatmapCompetitorsResponse</code>
 
