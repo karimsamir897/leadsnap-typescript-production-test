@@ -104,41 +104,6 @@ describe('resource heatmap', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('listLocations', async () => {
-    const responsePromise = client.public.api.v1.heatmap.listLocations();
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
-  test.skip('listLocations: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.public.api.v1.heatmap.listLocations(
-        {
-          'filter[address]': '123 Main St',
-          'filter[city]': 'Green Bay',
-          'filter[id]': 20,
-          'filter[location_name]': 'Green City',
-          'filter[place_id]': 'ChIJFzfDtmDzAogRn0zn9LJaP_A',
-          'filter[primary_category]': 'Roofing contractor',
-          'filter[state]': 'WI',
-          'filter[zip_code]': '54301',
-          page: 1,
-          per_page: 25,
-          sort: '-created_at',
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(ThriveMcp.NotFoundError);
-  });
-
-  // Mock server tests are disabled
   test.skip('retrieveHeatmap', async () => {
     const responsePromise = client.public.api.v1.heatmap.retrieveHeatmap(1482);
     const rawResponse = await responsePromise.asResponse();

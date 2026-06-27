@@ -108,31 +108,6 @@ export class Heatmap extends APIResource {
   }
 
   /**
-   * Returns a paginated list of Google Business Profile locations for the
-   * authenticated account. Supports filtering, sorting, searching, and pagination.
-   *
-   * **Pagination** — all list responses include pagination fields at the root level
-   * alongside `data`:
-   *
-   * - `total` total matching records; `last_page` total pages; `per_page` results
-   *   per page (default 25)
-   * - `next_page_url` URL of the next page (`null` on the last page)
-   * - `links` array of page link objects (`url`, `label`, `active`)
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.public.api.v1.heatmap.listLocations();
-   * ```
-   */
-  listLocations(
-    query: HeatmapListLocationsParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<HeatmapListLocationsResponse> {
-    return this._client.get('/public/api/v1/heatmaps/locations', { query, ...options });
-  }
-
-  /**
    * Returns full details of a single heatmap including grid points, place info, and
    * ranking statistics.
    *
@@ -393,126 +368,6 @@ export namespace HeatmapListHeatmapsResponse {
 
       website_url?: string;
     }
-  }
-}
-
-export interface HeatmapListLocationsResponse {
-  current_page?: number;
-
-  data?: Array<HeatmapListLocationsResponse.Data>;
-
-  first_page_url?: string;
-
-  from?: number;
-
-  last_page?: number;
-
-  last_page_url?: string;
-
-  links?: Array<unknown>;
-
-  next_page_url?: string;
-
-  path?: string;
-
-  per_page?: number;
-
-  prev_page_url?: string | null;
-
-  to?: number;
-
-  total?: number;
-}
-
-export namespace HeatmapListLocationsResponse {
-  export interface Data {
-    id?: number;
-
-    address?: string;
-
-    ave_review_rating?: number;
-
-    citation?: string | null;
-
-    city?: string;
-
-    completion_percentage?: number;
-
-    country?: string;
-
-    created_at?: string;
-
-    currency?: string;
-
-    deleted_at?: string | null;
-
-    description?: string;
-
-    email?: string | null;
-
-    image?: string;
-
-    is_authorized?: string | null;
-
-    is_citation_subscribed?: boolean;
-
-    is_connected?: number;
-
-    is_gmb_activate?: number;
-
-    last_review_date?: string;
-
-    latitude?: number;
-
-    location_id?: string;
-
-    location_image?: string;
-
-    location_name?: string;
-
-    location_name_initials?: string;
-
-    location_state?: string;
-
-    lock_changes?: number;
-
-    longitude?: number;
-
-    map_url?: string;
-
-    media_count?: number;
-
-    name?: string;
-
-    place_id?: string;
-
-    primary_category?: string;
-
-    primary_phone?: string;
-
-    review_count?: number;
-
-    review_link?: string;
-
-    review_url?: string;
-
-    state?: string;
-
-    status?: string;
-
-    subscription_id?: number;
-
-    subscription_item_id?: number;
-
-    unreplied_review_count?: number;
-
-    updated_at?: string;
-
-    website_url?: string;
-
-    zip?: string;
-
-    zip_code?: string;
   }
 }
 
@@ -1000,81 +855,18 @@ export namespace HeatmapCreateHeatmapParams {
   }
 }
 
-export interface HeatmapListLocationsParams {
-  /**
-   * Filter by address (partial match).
-   */
-  'filter[address]'?: string;
-
-  /**
-   * Filter by city.
-   */
-  'filter[city]'?: string;
-
-  /**
-   * Filter by location ID.
-   */
-  'filter[id]'?: number;
-
-  /**
-   * Filter by location name (partial match).
-   */
-  'filter[location_name]'?: string;
-
-  /**
-   * Filter by Google Place ID (exact).
-   */
-  'filter[place_id]'?: string;
-
-  /**
-   * Filter by primary business category.
-   */
-  'filter[primary_category]'?: string;
-
-  /**
-   * Filter by state.
-   */
-  'filter[state]'?: string;
-
-  /**
-   * Filter by zip code.
-   */
-  'filter[zip_code]'?: string;
-
-  /**
-   * Page number.
-   */
-  page?: number;
-
-  /**
-   * Number of results per page (default 25).
-   */
-  per_page?: number;
-
-  /**
-   * Sort field. Prefix with `-` for descending. Accepted: `location_name`,
-   * `address`, `city`, `state`, `zip_code`, `primary_category`, `website_url`,
-   * `review_count`, `ave_review_rating`, `created_at`, `last_review_date`,
-   * `is_connected`, `location_state`, `media_count`, `unreplied_review_count`,
-   * `completion_percentage`.
-   */
-  sort?: string;
-}
-
 Heatmap.Schedules = Schedules;
 
 export declare namespace Heatmap {
   export {
     type HeatmapCreateHeatmapResponse as HeatmapCreateHeatmapResponse,
     type HeatmapListHeatmapsResponse as HeatmapListHeatmapsResponse,
-    type HeatmapListLocationsResponse as HeatmapListLocationsResponse,
     type HeatmapRetrieveHeatmapResponse as HeatmapRetrieveHeatmapResponse,
     type HeatmapRetrieveHeatmapCompetitorsResponse as HeatmapRetrieveHeatmapCompetitorsResponse,
     type HeatmapRetrieveHeatmapPointResponse as HeatmapRetrieveHeatmapPointResponse,
     type HeatmapRetrieveHeatmapPointParams as HeatmapRetrieveHeatmapPointParams,
     type HeatmapListHeatmapsParams as HeatmapListHeatmapsParams,
     type HeatmapCreateHeatmapParams as HeatmapCreateHeatmapParams,
-    type HeatmapListLocationsParams as HeatmapListLocationsParams,
   };
 
   export {

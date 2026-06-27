@@ -29,12 +29,6 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/public/api/v1/heatmaps',
   },
   {
-    clientCallName: 'client.public.api.v1.heatmap.listLocations',
-    fullyQualifiedName: 'public.api.v1.heatmap.listLocations',
-    httpMethod: 'get',
-    httpPath: '/public/api/v1/heatmaps/locations',
-  },
-  {
     clientCallName: 'client.public.api.v1.heatmap.retrieveHeatmap',
     fullyQualifiedName: 'public.api.v1.heatmap.retrieveHeatmap',
     httpMethod: 'get',

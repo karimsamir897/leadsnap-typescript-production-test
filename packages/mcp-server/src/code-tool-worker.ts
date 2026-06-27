@@ -110,7 +110,6 @@ const fuse = new Fuse(
   [
     'client.public.api.v1.heatmap.createHeatmap',
     'client.public.api.v1.heatmap.listHeatmaps',
-    'client.public.api.v1.heatmap.listLocations',
     'client.public.api.v1.heatmap.retrieveHeatmap',
     'client.public.api.v1.heatmap.retrieveHeatmapCompetitors',
     'client.public.api.v1.heatmap.retrieveHeatmapPoint',

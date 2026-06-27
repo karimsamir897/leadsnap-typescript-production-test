@@ -155,44 +155,6 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
-    name: 'list_locations',
-    endpoint: '/public/api/v1/heatmaps/locations',
-    httpMethod: 'get',
-    summary: 'List locations',
-    description:
-      'Returns a paginated list of Google Business Profile locations for the authenticated account. Supports filtering, sorting, searching, and pagination.\n\n**Pagination** — all list responses include pagination fields at the root level alongside `data`:\n- `total` total matching records; `last_page` total pages; `per_page` results per page (default 25)\n- `next_page_url` URL of the next page (`null` on the last page)\n- `links` array of page link objects (`url`, `label`, `active`)',
-    stainlessPath: '(resource) public.api.v1.heatmap > (method) list_locations',
-    qualified: 'client.public.api.v1.heatmap.listLocations',
-    params: [
-      'filter[address]?: string;',
-      'filter[city]?: string;',
-      'filter[id]?: number;',
-      'filter[location_name]?: string;',
-      'filter[place_id]?: string;',
-      'filter[primary_category]?: string;',
-      'filter[state]?: string;',
-      'filter[zip_code]?: string;',
-      'page?: number;',
-      'per_page?: number;',
-      'sort?: string;',
-    ],
-    response:
-      '{ current_page?: number; data?: object[]; first_page_url?: string; from?: number; last_page?: number; last_page_url?: string; links?: object[]; next_page_url?: string; path?: string; per_page?: number; prev_page_url?: string; to?: number; total?: number; }',
-    markdown:
-      "## list_locations\n\n`client.public.api.v1.heatmap.listLocations(filter[address]?: string, filter[city]?: string, filter[id]?: number, filter[location_name]?: string, filter[place_id]?: string, filter[primary_category]?: string, filter[state]?: string, filter[zip_code]?: string, page?: number, per_page?: number, sort?: string): { current_page?: number; data?: object[]; first_page_url?: string; from?: number; last_page?: number; last_page_url?: string; links?: object[]; next_page_url?: string; path?: string; per_page?: number; prev_page_url?: string; to?: number; total?: number; }`\n\n**get** `/public/api/v1/heatmaps/locations`\n\nReturns a paginated list of Google Business Profile locations for the authenticated account. Supports filtering, sorting, searching, and pagination.\n\n**Pagination** — all list responses include pagination fields at the root level alongside `data`:\n- `total` total matching records; `last_page` total pages; `per_page` results per page (default 25)\n- `next_page_url` URL of the next page (`null` on the last page)\n- `links` array of page link objects (`url`, `label`, `active`)\n\n### Parameters\n\n- `filter[address]?: string`\n  Filter by address (partial match).\n\n- `filter[city]?: string`\n  Filter by city.\n\n- `filter[id]?: number`\n  Filter by location ID.\n\n- `filter[location_name]?: string`\n  Filter by location name (partial match).\n\n- `filter[place_id]?: string`\n  Filter by Google Place ID (exact).\n\n- `filter[primary_category]?: string`\n  Filter by primary business category.\n\n- `filter[state]?: string`\n  Filter by state.\n\n- `filter[zip_code]?: string`\n  Filter by zip code.\n\n- `page?: number`\n  Page number.\n\n- `per_page?: number`\n  Number of results per page (default 25).\n\n- `sort?: string`\n  Sort field. Prefix with `-` for descending. Accepted: `location_name`, `address`, `city`, `state`, `zip_code`, `primary_category`, `website_url`, `review_count`, `ave_review_rating`, `created_at`, `last_review_date`, `is_connected`, `location_state`, `media_count`, `unreplied_review_count`, `completion_percentage`.\n\n### Returns\n\n- `{ current_page?: number; data?: { id?: number; address?: string; ave_review_rating?: number; citation?: string; city?: string; completion_percentage?: number; country?: string; created_at?: string; currency?: string; deleted_at?: string; description?: string; email?: string; image?: string; is_authorized?: string; is_citation_subscribed?: boolean; is_connected?: number; is_gmb_activate?: number; last_review_date?: string; latitude?: number; location_id?: string; location_image?: string; location_name?: string; location_name_initials?: string; location_state?: string; lock_changes?: number; longitude?: number; map_url?: string; media_count?: number; name?: string; place_id?: string; primary_category?: string; primary_phone?: string; review_count?: number; review_link?: string; review_url?: string; state?: string; status?: string; subscription_id?: number; subscription_item_id?: number; unreplied_review_count?: number; updated_at?: string; website_url?: string; zip?: string; zip_code?: string; }[]; first_page_url?: string; from?: number; last_page?: number; last_page_url?: string; links?: object[]; next_page_url?: string; path?: string; per_page?: number; prev_page_url?: string; to?: number; total?: number; }`\n\n  - `current_page?: number`\n  - `data?: { id?: number; address?: string; ave_review_rating?: number; citation?: string; city?: string; completion_percentage?: number; country?: string; created_at?: string; currency?: string; deleted_at?: string; description?: string; email?: string; image?: string; is_authorized?: string; is_citation_subscribed?: boolean; is_connected?: number; is_gmb_activate?: number; last_review_date?: string; latitude?: number; location_id?: string; location_image?: string; location_name?: string; location_name_initials?: string; location_state?: string; lock_changes?: number; longitude?: number; map_url?: string; media_count?: number; name?: string; place_id?: string; primary_category?: string; primary_phone?: string; review_count?: number; review_link?: string; review_url?: string; state?: string; status?: string; subscription_id?: number; subscription_item_id?: number; unreplied_review_count?: number; updated_at?: string; website_url?: string; zip?: string; zip_code?: string; }[]`\n  - `first_page_url?: string`\n  - `from?: number`\n  - `last_page?: number`\n  - `last_page_url?: string`\n  - `links?: object[]`\n  - `next_page_url?: string`\n  - `path?: string`\n  - `per_page?: number`\n  - `prev_page_url?: string`\n  - `to?: number`\n  - `total?: number`\n\n### Example\n\n```typescript\nimport ThriveMcp from 'leadsnap-test-typescript';\n\nconst client = new ThriveMcp();\n\nconst response = await client.public.api.v1.heatmap.listLocations();\n\nconsole.log(response);\n```",
-    perLanguage: {
-      typescript: {
-        method: 'client.public.api.v1.heatmap.listLocations',
-        example:
-          "import ThriveMcp from 'leadsnap-test-typescript';\n\nconst client = new ThriveMcp({\n  bearerToken: process.env['THRIVE_MCP_BEARER_TOKEN'], // This is the default and can be omitted\n});\n\nconst response = await client.public.api.v1.heatmap.listLocations();\n\nconsole.log(response.current_page);",
-      },
-      http: {
-        example:
-          'curl https://app.leadsnap.com/public/api/v1/heatmaps/locations \\\n    -H "Authorization: Bearer $THRIVE_MCP_BEARER_TOKEN"',
-      },
-    },
-  },
-  {
     name: 'retrieve_heatmap',
     endpoint: '/public/api/v1/heatmaps/{heatmap}',
     httpMethod: 'get',
